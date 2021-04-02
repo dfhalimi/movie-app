@@ -5,6 +5,7 @@ import RingLoader from "react-spinners/RingLoader";
 import Navbar from "./main/Navbar";
 import Sidebar from "./Sidebar";
 import Movies from "./main/Movies";
+import Footer from "./Footer";
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
@@ -67,6 +68,7 @@ const Main = () => {
           <RingLoader color="white" size={70} />
         </div>
       ) : (
+        <>
         <div className="main">
           <Sidebar action={onClickHandle} />
           <div>
@@ -79,6 +81,8 @@ const Main = () => {
             </Route>
           </div>
         </div>
+        <Footer />
+        </>
       )}
     </>
   );

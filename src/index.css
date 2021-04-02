@@ -4,6 +4,17 @@
   box-sizing: border-box;
 }
 
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: #a84244;
+}
+
+::selection {
+  color: white;
+  background: #a84244;
+}
+
 body {
   background: linear-gradient(80deg, #1b1c33 0%, #1b1c33 35%, #223049 50%);
   color: white;
@@ -396,6 +407,26 @@ form {
 
 .review-link:hover {
   color: #a84244;
+}
+
+/*Footer*/
+footer {
+  min-height: 60px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 15;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  margin: 0 10px;
+}
+
+footer a {
+  color: #fff;
 }
 
 @media screen and (max-width: 900px) {
