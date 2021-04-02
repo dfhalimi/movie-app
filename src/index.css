@@ -163,7 +163,14 @@ form {
 /*Main*/
 .main {
   width: 100%;
+  min-height: calc(100vh - 60px);
   display: flex;
+}
+
+.fas.fa-bars {
+  font-size: 32px;
+  margin: 20px 0 0 40px;
+  cursor: pointer;
 }
 
 .main-search {
@@ -194,6 +201,56 @@ form {
   font-size: 1.2rem;
   font-weight: lighter;
   letter-spacing: 0.3rem;
+}
+
+.main .dropdown-menu {
+  position: absolute;
+  /*transform: translateY(-100%);*/
+  width: 100%;
+  z-index: 3;
+  background-color: #223049;
+  transform: translateY(-100%);
+}
+
+.dropdown-anim {
+  animation: dropdown 0.4s forwards;
+}
+
+@keyframes dropdown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.dropdown-menu ul {
+  margin: 0;
+}
+
+.dropdown-menu li {
+  width: 100%;
+  border-bottom: 1px solid #1b1c33;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  text-align: center;
+}
+
+.dropdown-menu li:hover {
+  color: #fff;
+  background-color: #a84244;
+}
+
+.dropdown-menu .close {
+  text-align: left;
+}
+
+.close span {
+  margin-left: 30px;
+  color: #fff;
+  font-size: 20px;
 }
 
 /*Sidebar*/
@@ -245,7 +302,7 @@ form {
   align-items: center;
 }
 
-.dearch-results h1 {
+.search-results h1 {
   text-align: center;
 }
 
@@ -429,8 +486,27 @@ footer a {
   color: #fff;
 }
 
-@media screen and (max-width: 900px) {
-  .extra-container {
-    height: 100vh;
+/*Media Queries*/
+@media screen and (max-width: 1250px) {
+  .main-search {
+    margin: 50px 5% 0 5%;
+  }
+
+  .main .movies-div {
+    margin-left: 0;
+  }
+
+  .movies-div {
+    width: 100%;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search.clickSearch {
+    width: 210px;
   }
 }

@@ -4,6 +4,7 @@ import RingLoader from "react-spinners/RingLoader";
 
 import Navbar from "./main/Navbar";
 import Sidebar from "./Sidebar";
+import Dropdown from "./main/Dropdown";
 import Movies from "./main/Movies";
 import Footer from "./Footer";
 
@@ -61,6 +62,17 @@ const Main = () => {
     titleChange(e.target.id);
   };
 
+  const dropdown = () => {
+    document.getElementById("dropdown").classList.add("dropdown-anim");
+  };
+
+  const closeDropDown = (e) => {
+    document.getElementById("dropdown").classList.remove("dropdown-anim");
+    if (e.target.id) {
+      onClickHandle(e);
+    }
+  };
+
   return (
     <>
       {loading ? (
@@ -69,19 +81,21 @@ const Main = () => {
         </div>
       ) : (
         <>
-        <div className="main">
-          <Sidebar action={onClickHandle} />
-          <div>
-            <div className="main-search">
-              <h2>{title}</h2>
-              <Navbar />
+          <div className="main">
+            <Dropdown action={closeDropDown} />
+            <Sidebar action={onClickHandle} />
+            <div>
+              <i class="fas fa-bars" onClick={dropdown}></i>
+              <div className="main-search">
+                <h2>{title}</h2>
+                <Navbar />
+              </div>
+              <Route path="/">
+                <Movies movies={movies} />
+              </Route>
             </div>
-            <Route path="/">
-              <Movies movies={movies} />
-            </Route>
           </div>
-        </div>
-        <Footer />
+          <Footer />
         </>
       )}
     </>
