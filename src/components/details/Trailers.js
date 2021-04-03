@@ -5,6 +5,12 @@ import ReactPlayer from "react-player/youtube";
 const Trailers = ({ movieInfo }) => {
   const [trailers, setTrailers] = useState([]);
 
+  const breakPoints = [
+    { width: 550, itemsToShow: 1 },
+    { width: 850, itemsToShow: 2 },
+    { width: 1150, itemsToShow: 3 },
+  ];
+
   useEffect(() => {
     getTrailers();
   });
@@ -22,7 +28,7 @@ const Trailers = ({ movieInfo }) => {
   if (trailers && trailers.length > 0) {
     return (
       <div className="details-nav-container">
-        <Carousel itemsToShow={1} pagination={false}>
+        <Carousel pagination={false} breakPoints={breakPoints}>
           {trailers.map((trailer) => (
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${trailer.key}`}

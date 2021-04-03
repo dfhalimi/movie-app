@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-  useHistory,
-} from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import Rating from "./details/Rating";
 import Summary from "./details/Summary";
@@ -14,15 +8,11 @@ import Trailers from "./details/Trailers";
 import Reviews from "./details/Reviews";
 
 const IMG_API = "https://image.tmdb.org/t/p//w1280/";
-const changeFocus = () => {
-  document.getElementById("summary").classList.remove("active");
-};
 
 const Details = () => {
   const [movieInfo, setMovieInfo] = useState({});
   const [cast, setCast] = useState([]);
   const { info } = useParams();
-  const { url, path } = useRouteMatch();
   const history = useHistory();
 
   useEffect(() => {
@@ -69,35 +59,9 @@ const Details = () => {
               onClick={() => history.goBack()}
             ></i>
             <Rating movieInfo={movieInfo} />
-            <div className="details-nav">
-              <div className="details-navbar">
-                <Link to={`${url}`} className="active" id="summary">
-                  Summary
-                </Link>
-                <Link to={`${url}/cast`} onClick={changeFocus}>
-                  Cast
-                </Link>
-                <Link to={`${url}/trailers`} onClick={changeFocus}>
-                  Trailers
-                </Link>
-                <Link to={`${url}/reviews`} onClick={changeFocus}>
-                  Reviews
-                </Link>
-              </div>
-              <div className="details-nav-content">
-                <Route exact path={`${path}`}>
-                  <Summary movieInfo={movieInfo} cast={cast} />
-                </Route>
-                <Route path={`${path}/cast`}>
-                  <Cast cast={cast} />
-                </Route>
-                <Route path={`${path}/trailers`}>
-                  <Trailers movieInfo={movieInfo} />
-                </Route>
-                <Route path={`${path}/reviews`}>
-                  <Reviews movieInfo={movieInfo} />
-                </Route>
-              </div>
+            <div className="summary">
+              <h2 className="overview-header summary-header">Summary</h2>
+              <Summary movieInfo={movieInfo} cast={cast} />
             </div>
             <div className="title-container">
               <h1>{movieInfo.title}</h1>
@@ -119,7 +83,24 @@ const Details = () => {
           </div>
         </div>
       </div>
-      <div className="extra-container"></div>
+      <div className="additional-info">
+        <div className="summary-resp">
+          <h2 className="overview-header">Summary</h2>
+          <Summary movieInfo={movieInfo} cast={cast} />
+        </div>
+        <div className="add-info-container">
+          <h2 className="overview-header">Cast</h2>
+          <Cast cast={cast} />
+        </div>
+        <div className="add-info-container">
+          <h2 className="overview-header">Trailers</h2>
+          <Trailers movieInfo={movieInfo} />
+        </div>
+        <div className="add-info-container">
+          <h2 className="overview-header">Reviews</h2>
+          <Reviews movieInfo={movieInfo} />
+        </div>
+      </div>
     </>
   );
 };
