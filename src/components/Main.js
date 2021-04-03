@@ -50,15 +50,17 @@ const Main = () => {
         setTitle("Top Rated Movies");
         break;
       default:
-        setTitle("Movies");
+        setTitle("Your Movies");
         break;
     }
   };
 
   const onClickHandle = (e) => {
-    setApi(
-      `https://api.themoviedb.org/3/movie/${e.target.id}?api_key=cb6bfb150fbae43254ec1d34ca5b3f50&language=en-US&page=1`
-    );
+    if (e.target.id) {
+      setApi(
+        `https://api.themoviedb.org/3/movie/${e.target.id}?api_key=cb6bfb150fbae43254ec1d34ca5b3f50&language=en-US&page=1`
+      );
+    }
     titleChange(e.target.id);
   };
 
@@ -70,6 +72,8 @@ const Main = () => {
     document.getElementById("dropdown").classList.remove("dropdown-anim");
     if (e.target.id) {
       onClickHandle(e);
+    } else {
+      titleChange("default");
     }
   };
 
@@ -84,14 +88,29 @@ const Main = () => {
           <div className="main">
             <Dropdown action={closeDropDown} />
             <Sidebar action={onClickHandle} />
-            <div>
-              <i class="fas fa-bars" onClick={dropdown}></i>
+            <div className="wrapper">
+              <i className="fas fa-bars" onClick={dropdown}></i>
               <div className="main-search">
                 <h2>{title}</h2>
                 <Navbar />
               </div>
-              <Route path="/">
+              <Route exact path="/home">
                 <Movies movies={movies} />
+              </Route>
+              <Route path="/home/watch_list">
+                <p className="empty-list">
+                  There are currently no movies in your watch list...
+                </p>
+              </Route>
+              <Route path="/home/favourites">
+                <p className="empty-list">
+                  There are currently no favourite movies...
+                </p>
+              </Route>
+              <Route path="/home/recommendations">
+                <p className="empty-list">
+                  There are currently no recommended movies...
+                </p>
               </Route>
             </div>
           </div>

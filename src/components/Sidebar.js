@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Sidebar = ({ action }) => (
+const Sidebar = ({ action, secondAction }) => (
   <div className="sidebar">
     <div
       className="account-info"
@@ -25,26 +26,44 @@ const Sidebar = ({ action }) => (
       </span>
     </div>
     <ul className="sidebar-list">
-      <li className="sidebar-item" id="popular" onClick={action}>
-        Popular
-      </li>
-      <li className="sidebar-item test" id="upcoming" onClick={action}>
-        Upcoming
-      </li>
-      <li className="sidebar-item" id="now_playing" onClick={action}>
-        Now Playing
-      </li>
-      <li className="sidebar-item" id="top_rated" onClick={action}>
-        Top Rated
-      </li>
+      <Link to="/home">
+        <li className="sidebar-item" id="popular" onClick={action}>
+          Popular
+        </li>
+      </Link>
+      <Link to="/home">
+        <li className="sidebar-item test" id="upcoming" onClick={action}>
+          Upcoming
+        </li>
+      </Link>
+      <Link to="/home">
+        <li className="sidebar-item" id="now_playing" onClick={action}>
+          Now Playing
+        </li>
+      </Link>
+      <Link to="/home">
+        <li className="sidebar-item" id="top_rated" onClick={action}>
+          Top Rated
+        </li>
+      </Link>
     </ul>
 
     <hr />
 
     <ul className="sidebar-list">
-      <li className="sidebar-item">Watch List</li>
-      <li className="sidebar-item">Favourites</li>
-      <li className="sidebar-item">Recommendations</li>
+      <Link to="/home/watch_list">
+        <li className="sidebar-item" onClick={action}>
+          Watch List
+        </li>
+      </Link>
+      <Link to="/home/favourites">
+        <li className="sidebar-item" onClick={action}>
+          Favourites
+        </li>
+      </Link>
+      <Link to="/home/recommendations" onClick={action}>
+        <li className="sidebar-item">Recommendations</li>
+      </Link>
       <li className="sidebar-item">Account</li>
     </ul>
   </div>

@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 import Navbar from "./main/Navbar";
 import Movies from "./main/Movies";
+import Footer from "./Footer";
 
 const SEARCH_API =
   "https://api.themoviedb.org/3/search/movie?&api_key=cb6bfb150fbae43254ec1d34ca5b3f50&query=";
@@ -28,7 +29,7 @@ const SearchResults = () => {
     return (
       <>
         <div className="search-nav">
-          <Link to="/">
+          <Link to="/home">
             <i className="fas fa-chevron-left back-btn"></i>
           </Link>
           <Navbar />
@@ -44,6 +45,7 @@ const SearchResults = () => {
             )}
           </div>
         </div>
+        <Footer />
       </>
     );
   }

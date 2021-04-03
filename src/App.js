@@ -8,7 +8,7 @@ import SearchResults from "./components/SearchResults";
 function App() {
   return (
     <Router>
-      <Route exact path="/">
+      <Route path="/home">
         <Main />
       </Route>
       <Route path="/details/:info">

@@ -6,6 +6,7 @@ import Summary from "./details/Summary";
 import Cast from "./details/Cast";
 import Trailers from "./details/Trailers";
 import Reviews from "./details/Reviews";
+import Footer from "./Footer";
 
 const IMG_API = "https://image.tmdb.org/t/p//w1280/";
 
@@ -101,6 +102,7 @@ const Details = () => {
           <Reviews movieInfo={movieInfo} />
         </div>
       </div>
+      <Footer />
     </>
   );
 };
