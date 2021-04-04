@@ -41,7 +41,9 @@ const SearchResults = () => {
             {movies.length > 0 ? (
               <Movies movies={movies} />
             ) : (
-              <p>No movies found with that name :(</p>
+              <p style={{ textAlign: "center" }}>
+                No movies found with that name :(
+              </p>
             )}
           </div>
         </div>
