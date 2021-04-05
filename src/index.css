@@ -284,6 +284,18 @@ form {
   margin: 30px 0;
   border-color: rgba(255, 255, 255, 0.4);
 }
+#error-msg {
+  visibility: hidden;
+}
+
+.error-msg {
+  margin-top: 10px;
+  visibility: visible !important;
+  background-color: #a84244;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px 0;
+}
 
 /*Search Results*/
 .search-nav {
@@ -382,6 +394,25 @@ form {
   margin: 5px;
   font-size: 30px;
   color: #a84244;
+}
+
+.title-container {
+  position: relative;
+}
+
+#details-error-msg {
+  visibility: hidden;
+}
+
+.details-error-msg {
+  visibility: visible !important;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  background-color: #a84244;
+  padding: 10px;
+  width: 90%;
+  text-align: center;
 }
 
 .cta-container {

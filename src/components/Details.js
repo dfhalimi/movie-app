@@ -21,6 +21,16 @@ const Details = () => {
     actors();
   }, []);
 
+  const displayErrorMsg = () => {
+    const errorMsg = document.getElementById("details-error-msg");
+    if (!errorMsg.classList.contains("details-error-msg")) {
+      errorMsg.classList.add("details-error-msg");
+      setTimeout(() => {
+        errorMsg.classList.remove("details-error-msg");
+      }, 3000);
+    }
+  };
+
   const movie = () => {
     fetch(
       `https://api.themoviedb.org/3/movie/${info}?api_key=cb6bfb150fbae43254ec1d34ca5b3f50&language=en-US`
@@ -65,17 +75,18 @@ const Details = () => {
               <Summary movieInfo={movieInfo} cast={cast} />
             </div>
             <div className="title-container">
+              <div id="details-error-msg">This is not a feature yet!</div>
               <h1>{movieInfo.title}</h1>
               <div className="cta-container">
-                <div className="cta">
+                <div className="cta" onClick={displayErrorMsg}>
                   <i className="far fa-heart"></i>
                   <span>Favourite</span>
                 </div>
-                <div className="cta">
+                <div className="cta" onClick={displayErrorMsg}>
                   <i className="fas fa-plus"></i>
                   <span>Add to Watch List</span>
                 </div>
-                <div className="cta">
+                <div className="cta" onClick={displayErrorMsg}>
                   <i className="fas fa-share"></i>
                   <span>Share</span>
                 </div>
