@@ -1,5 +1,7 @@
 ## Movies App w/ React
 
+<a href="https://deniz-halimi-movie-app.netlify.app/home" target="_blank">www.deniz-halimi-movie-app.netlify.app</a>
+
 My first React project
 
 ![Home Page Screenshot](src/images/movie-app-screenshot.jpg)
