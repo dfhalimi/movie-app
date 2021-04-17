@@ -30,12 +30,15 @@ const Trailers = ({ movieInfo }) => {
       <div className="details-nav-container">
         <Carousel pagination={false} breakPoints={breakPoints}>
           {trailers.map((trailer) => (
-            <ReactPlayer
-              url={`https://www.youtube.com/watch?v=${trailer.key}`}
-              key={trailer.id}
-              width={384}
-              height={216}
-            />
+            <div className="player-wrapper">
+              <ReactPlayer
+                className="react-player"
+                url={`https://www.youtube.com/watch?v=${trailer.key}`}
+                key={trailer.id}
+                width="100%"
+                height="100%"
+              />
+            </div>
           ))}
         </Carousel>
       </div>

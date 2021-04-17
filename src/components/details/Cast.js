@@ -5,7 +5,8 @@ import Actor from "./Actor";
 
 const Cast = ({ cast }) => {
   const breakPoints = [
-    { width: 1, itemsToShow: 3 },
+    { width: 1, itemsToShow: 1 },
+    { width: 400, itemsToShow: 3 },
     { width: 550, itemsToShow: 4 },
     { width: 850, itemsToShow: 5 },
     { width: 1150, itemsToShow: 6 },

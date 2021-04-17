@@ -203,7 +203,6 @@ form {
 
 .main .dropdown-menu {
   position: absolute;
-  /*transform: translateY(-100%);*/
   width: 100%;
   z-index: 3;
   background-color: #223049;
@@ -318,7 +317,7 @@ form {
   min-height: calc(100vh - 200px);
 }
 
-.search-results h1 {
+.search-results h2 {
   text-align: center;
 }
 
@@ -488,6 +487,20 @@ form {
   margin: 10px 0 0 0;
 }
 
+/*Trailers*/
+.player-wrapper {
+  width: 384px;
+  height: 216px;
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /*Reviews*/
 .review-link {
   text-decoration: 2px underline #a84244;
@@ -548,6 +561,7 @@ footer a {
 
   .details-overview {
     justify-content: space-between;
+    width: 100%;
   }
 
   .details-overview h1 {
@@ -582,5 +596,47 @@ footer a {
 
   .additional-info {
     width: 95%;
+  }
+
+  .details-overview h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cta {
+    margin-right: 20px;
+  }
+  .cta i {
+    font-size: 20px;
+  }
+  .cta span {
+    font-size: 16px;
+  }
+  .player-wrapper {
+    width: 256px;
+    height: 156px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .details-overview h1 {
+    font-size: 24px;
+  }
+  .cta {
+    margin-right: 10px;
+  }
+  .cta i {
+    font-size: 16px;
+  }
+  .cta span {
+    font-size: 14px;
+  }
+  .details-error-msg {
+    left: 5px;
+  }
+  .player-wrapper {
+    width: 192px;
+    height: 117px;
   }
 }
